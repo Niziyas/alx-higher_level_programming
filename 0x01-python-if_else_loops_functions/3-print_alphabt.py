@@ -1,4 +1,6 @@
 #!/usr/bin/python3
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 for i in alphabet:
-    print(alphabet,end="")
+    alphabet = i
+    if i !='e' and i!='q': 
+        print(alphabet,end="")
