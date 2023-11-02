@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    """print infinit add"""
     import sys
     total = 0
     for i in range(len(sys.argv) - 1):
