@@ -1,22 +1,29 @@
-/*
- * 0x17. C - Doubly linked lists
- * task 0
- */
 #include "lists.h"
+
 /**
  * print_dlistint - prints all the elements of a dlistint_t list.
- * @h: pointer to dlistint_t head
- * Return: the number of nodes
+ * @h: pointer to the head of the list
+ *
+ * Return: number of nodes
  */
+
 size_t print_dlistint(const dlistint_t *h)
 {
-	int i = 0;
 
-	while (h)
+	int counter = 0;
+
+	if (h == NULL)
+		return (counter);
+
+	while (h->prev != NULL)
+		h = h->prev;
+
+	while (h != NULL)
 	{
 		printf("%d\n", h->n);
 		h = h->next;
-		i++;
+		counter++;
 	}
-	return (i);
+
+	return (counter);
 }
