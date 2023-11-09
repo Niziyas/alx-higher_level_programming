@@ -1,37 +1,37 @@
-/*
- * 0x17. C - Doubly linked lists
- * task 3
- */
 #include "lists.h"
+
 /**
- * add_dnodeint_end - add new node at the end of a dlistint_t list.
- * @head: pointer to head pointer
- * @n: integer value
- * Return: node address or null in fail
+ *  add_dnodeint_end -  adds a new node at the end of a dlistint_t list.
+ * @head: double pointer to the head of the list
+ * @n: integer to add to the new node
+ *
+ * Return:  the address of the new element, or NULL if it failed
  */
+
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
-	dlistint_t *new_node, *current;
+	dlistint_t *new_node;
 
 	new_node = malloc(sizeof(dlistint_t));
+
 	if (new_node == NULL)
 		return (NULL);
+
 	new_node->n = n;
 	new_node->next = NULL;
-	new_node->prev = NULL;
-	/*add new node in the beginning of the list*/
-	if (*head == NULL)
-		*head = new_node;
-	else
-	{
-		current = *head;
-		while (current->next)
-			current = current->next;
 
-		new_node->prev = current;
-		current->next = new_node;
+	if (*head == NULL)
+	{
+		new_node->prev = NULL;
+		*head = new_node;
+		return (new_node);
 	}
 
+	while ((*head)->next != NULL)
+		*head = (*head)->next;
+
+	(*head)->next = new_node;
+	new_node->prev = *head;
 
 	return (new_node);
 }

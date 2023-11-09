@@ -1,21 +1,24 @@
-/*
- * 0x17. C - Doubly linked lists
- * task 1
- */
 #include "lists.h"
+
 /**
- * dlistint_len - count the elements in a linked dlistint_t list.
- * @h: pointer to dlistint_t head
- * Return: the number of nodes
+ * dlistint_len - returns the number of elements in a linked dlistint_t list.
+ * @h: pointer to the head of the list
+ *
+ * Return: number of nodes
  */
+
 size_t dlistint_len(const dlistint_t *h)
 {
-	int i = 0;
+	int counter = 0;
 
-	while (h)
+	if (h == NULL)
+		return (counter);
+
+	while (h != NULL)
 	{
+		counter++;
 		h = h->next;
-		i++;
 	}
-	return (i);
+
+	return (counter);
 }
